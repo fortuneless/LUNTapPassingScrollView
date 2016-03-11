@@ -6,7 +6,7 @@
 //
 
 #import "LUNTapPassingScrollView.h"
-#import "UIView+Addition.h"
+#import "UIView+EnumerationForTest.h"
 
 @implementation LUNTapPassingScrollView
 
