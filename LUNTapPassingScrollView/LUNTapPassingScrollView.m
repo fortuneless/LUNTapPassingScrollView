@@ -35,7 +35,7 @@
 }
 
 - (void)initialSetup {
-    _forwardsTouchesToClasses = [NSSet setWithArray:@[UIControl.class]];
+    _forwardsTouchesToClasses = [NSSet setWithArray:@[[UIControl class]]];
 }
 
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
@@ -48,7 +48,7 @@
 
 #pragma mark Private Methods
 
-- (BOOL)mustCapturePoint:(CGPoint)point withEvent:(UIEvent*)event {
+- (BOOL)mustCapturePoint:(CGPoint)point withEvent:(UIEvent *)event {
     if (![self mustCapturePoint:point withEvent:event view:self.superview]) {
         return NO;
     }
@@ -63,7 +63,7 @@
     return mustCapturePoint;
 }
 
-- (BOOL)mustCapturePoint:(CGPoint)point withEvent:(UIEvent *)event view:(UIView*)view {
+- (BOOL)mustCapturePoint:(CGPoint)point withEvent:(UIEvent *)event view:(UIView *)view {
     CGPoint tapPoint = [self convertPoint:point toView:view];
     __block BOOL mustCapturePoint = YES;
     __block UIView *weakView = view;
@@ -81,7 +81,7 @@
 }
 
 - (BOOL)forwardTouchesToClass:(Class)class {
-    while ([class isSubclassOfClass:NSObject.class]) {
+    while ([class isSubclassOfClass:[NSObject class]]) {
         if ([_forwardsTouchesToClasses containsObject:class]) {
             return YES;
         }
